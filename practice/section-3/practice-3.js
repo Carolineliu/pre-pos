@@ -12,13 +12,13 @@ function count_same_elements(collection) {
   }
   return result;
 }
-
 function create_updated_collection(collection_a, object_b) {
-  for (var i in collection_a) {
-    if (object_b.value.indexOf(collection_a[i]) !== -1) {
-      if (collection_a[i] / 3 > 0) {
-        collection_a.count = collection_a.count - Math.floor(collection_a.count / 3);
-      }
+  var collection=count_same_elements(collection_a);
+  for (var i in collection) {
+    if (object_b.value.indexOf(collection[i].key) !== -1) {
+      collection[i].count = collection[i].count - Math.floor(collection[i].count / 3);
+
     }
-    return collection_a;
   }
+  return collection;
+}
