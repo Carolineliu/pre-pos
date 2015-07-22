@@ -1,18 +1,7 @@
-function same_key(key, object_b ){
-  for(var i = 0; i < object_b.value.length; i ++){
-    if(key === object_b.value[i])
-      return key;
-
+function create_updated_collection(collection_a, object_b){
+  for (var i in collection_a) {
+    if (object_b.value.indexOf(collection_a[i]) !== -1)
+      collection_a.count--;
+    return collection_a;
   }
-}
-function collect_same_elements(collection_a, object_b) {
-  var array = [];
-  for(var x = 0; x < collection_a.length; x ++){
-    var key = same_key(collection_a[x].key,object_b);
-    if(key){
-      array.push(key);
-    }
-
-  }
-  return array;
 }

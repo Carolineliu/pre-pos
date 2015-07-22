@@ -1,19 +1,10 @@
-function rightres(collection_a,object_b){
-  for(var i = 0; i < object_b.value.length; i++){
-    if(collection_a.key === object_b.value[i]){
-      if(collection_a.count/3 > 0)
-      collection_a.count= collection_a.count-Math.floor(collection_a.count/3);
+function create_updated_collection(collection_a, object_b) {
+  for (var i in collection_a) {
+    if (object_b.value.indexOf(collection_a[i]) !== -1) {
+      if (collection_a[i] / 3 > 0) {
+        collection_a.count = collection_a.count - Math.floor(collection_a.count / 3);
+      }
     }
   }
-  var obj = {key:collection_a.key,count:collection_a.count};
-  return  obj;
-}
-
-
-function create_updated_collection(collection_a, object_b) {
-  var array = [];
-  for(var i = 0; i < collection_a.length; i++){
-    array.push(rightres(collection_a[i],object_b)) ;
-  }
-  return array;
+  return collection_a;
 }
